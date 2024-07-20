@@ -1,0 +1,1 @@
+export { SearchCharacters } from './SearchCharacters';

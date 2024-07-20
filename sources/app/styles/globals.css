@@ -1,0 +1,27 @@
+html[data-mui-color-scheme='light'] body {
+  background-color: white;
+  background-image: url("/background-light.webp");
+}
+
+html[data-mui-color-scheme='dark'] body {
+  background-color: black;
+  background-image: url("/background-dark.webp");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  margin: 20px;
+}
