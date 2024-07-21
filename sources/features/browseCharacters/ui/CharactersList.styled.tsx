@@ -50,13 +50,4 @@ export const PaginationStyled = styled(Pagination)<PaginationProps>(({ theme }) 
   padding: '4px',
   background: `rgba(${theme.vars.palette.common.backgroundChannel} / 0.85)`,
   borderRadius: theme.vars.shape.borderRadius,
-  [maxQueries.phone]: {
-    padding: '2px',
-    '& .MuiPaginationItem-root': {
-      minWidth: '24px',
-      height: '24px',
-      padding: '0 4px',
-      margin: '0 2px',
-    },
-  },
 }));

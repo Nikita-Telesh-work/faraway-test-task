@@ -1,1 +1,1 @@
-export { maxQueries, headerHeight } from './constants';
+export { breakpoints, maxQueries, headerHeight } from './constants';

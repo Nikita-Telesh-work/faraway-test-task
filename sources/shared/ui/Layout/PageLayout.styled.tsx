@@ -14,7 +14,7 @@ export const PageWrapperStyled = styled('div')({
 export const PageMainStyled = styled('main')({
   flex: '1 1 auto',
   margin: '20px 40px',
-  maxHeight: `calc(100vh - 40px - ${headerHeight.default})`,
+  maxHeight: `calc(100dvh - 40px - ${headerHeight.default})`,
   maxWidth: '1600px',
   width: 'calc(100% - 80px)',
   [maxQueries.desktop]: {
@@ -24,10 +24,11 @@ export const PageMainStyled = styled('main')({
   [maxQueries.tablet]: {
     margin: '20px',
     width: 'calc(100% - 40px)',
+    maxHeight: `calc(100dvh - 40px - ${headerHeight[maxQueries.tablet]})`,
   },
   [maxQueries.phone]: {
     margin: '10px',
-    maxHeight: `calc(100vh - 20px - ${headerHeight[maxQueries.tablet]})`,
+    maxHeight: `calc(100dvh - 20px - ${headerHeight[maxQueries.tablet]})`,
     width: 'calc(100% - 20px)',
   },
 });
