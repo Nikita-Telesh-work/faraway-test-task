@@ -6,7 +6,7 @@ import { ThemesEnum } from '../constants';
 
 export const useThemeSelector = () => {
   const [mounted, setMounted] = useState(false);
-  const { mode: theme = ThemesEnum.LIGHT, setMode: setTheme } = useColorScheme();
+  const { mode: theme, setMode: setTheme } = useColorScheme();
 
   const onChange = useCallback(
     (_: ChangeEvent<unknown>, newThemeValue: ThemesEnum | null) => {

@@ -15,7 +15,7 @@ import {
 } from './EditCharacterForm.styled';
 import { useEditCharacterForm } from './useEditCharacterForm';
 
-interface IEditCharacterForm {
+export interface IEditCharacterForm {
   id: string;
   data: ICharacter;
 }
@@ -62,11 +62,21 @@ export const EditCharacterForm: React.FC<IEditCharacterForm> = ({ id, data }) =>
           ))}
 
           <ButtonContainerStyled>
-            <ButtonStyled type="button" onClick={onClickExit} variant="contained" color="info">
+            <ButtonStyled
+              data-testid="exitButton"
+              type="button"
+              onClick={onClickExit}
+              variant="contained"
+              color="info">
               Exit
             </ButtonStyled>
 
-            <ButtonStyled disabled={!isValid} type="submit" variant="contained" color="success">
+            <ButtonStyled
+              data-testid="saveButton"
+              disabled={!isValid}
+              type="submit"
+              variant="contained"
+              color="success">
               Save
             </ButtonStyled>
           </ButtonContainerStyled>

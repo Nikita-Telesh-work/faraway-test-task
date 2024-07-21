@@ -4,6 +4,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import type {} from '@mui/material/themeCssVarsAugmentation';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
+import { DEFAULT_THEME_MODE } from '@/features/changeTheme';
 import { theme } from '@/app/theme';
 import '@/app/styles/index.css';
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <InitColorSchemeScript />
+        <InitColorSchemeScript defaultMode={DEFAULT_THEME_MODE} />
         <AppRouterCacheProvider>
-          <CssVarsProvider theme={theme}>{children}</CssVarsProvider>
+          <CssVarsProvider defaultMode={DEFAULT_THEME_MODE} theme={theme}>
+            {children}
+          </CssVarsProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

@@ -1,1 +1,1 @@
-export { CharacterPage } from './ui';
+export * from './ui';

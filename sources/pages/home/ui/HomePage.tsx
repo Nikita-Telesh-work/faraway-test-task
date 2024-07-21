@@ -5,7 +5,7 @@ import { CharactersList } from '@/features/browseCharacters';
 import { SearchCharacters } from '@/features/searchCharacters';
 import { PageMainStyled, PageWrapperStyled } from '@/shared/ui';
 
-interface IHomePage {
+export interface IHomePage {
   currentPageNumber: number;
   currentSearch: string;
   data: ICharactersPage;

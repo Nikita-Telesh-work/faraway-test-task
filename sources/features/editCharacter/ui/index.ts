@@ -1,1 +1,1 @@
-export { EditCharacterForm } from './EditCharacterForm';
+export { type IEditCharacterForm, EditCharacterForm } from './EditCharacterForm';

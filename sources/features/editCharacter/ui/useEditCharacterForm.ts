@@ -6,6 +6,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { FormikValues } from 'formik';
 import { useLocalStorage } from '@/shared/hooks';
 
+import { fieldsMap } from './constants';
+
 interface IUseEditCharacterForm {
   id: string;
   data: ICharacter;
@@ -18,19 +20,6 @@ export const useEditCharacterForm = ({ id, data }: IUseEditCharacterForm) => {
   const [isValid, setIsValid] = useState(true);
   const [openSnackbar, setIsOpenSnackbar] = useState(false);
 
-  const fieldsMap: Array<{ name: keyof ICharacter; label: string }> = useMemo(
-    () => [
-      { name: 'height', label: 'Height' },
-      { name: 'mass', label: 'Mass' },
-      { name: 'hair_color', label: 'Hair color' },
-      { name: 'skin_color', label: 'Skin color' },
-      { name: 'eye_color', label: 'Eye color' },
-      { name: 'birth_year', label: 'Birth year' },
-      { name: 'gender', label: 'Gender' },
-    ],
-    [],
-  );
-
   const initialValues = useMemo(
     () =>
       fieldsMap.reduce(
@@ -41,7 +30,7 @@ export const useEditCharacterForm = ({ id, data }: IUseEditCharacterForm) => {
         },
         {} as Record<keyof ICharacter, string>,
       ),
-    [characterData, fieldsMap],
+    [characterData],
   );
 
   const validate = useCallback((values: FormikValues) => {

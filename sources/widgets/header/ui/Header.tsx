@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeSelector } from '@/features/changeTheme';
 import { AppBarBackdropStyled, AppBarStyled } from './Header.styled';
 
-interface IHeader {
+export interface IHeader {
   children?: React.ReactNode;
 }
 

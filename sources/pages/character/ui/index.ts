@@ -1,1 +1,1 @@
-export { CharacterPage } from './CharacterPage';
+export { type ICharacterPage, CharacterPage } from './CharacterPage';

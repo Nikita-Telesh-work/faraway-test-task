@@ -4,7 +4,7 @@ import { ICharacter } from '@/entities/character';
 import { EditCharacterForm } from '@/features/editCharacter';
 import { PageMainStyled, PageWrapperStyled } from '@/shared/ui';
 
-interface ICharacterPage {
+export interface ICharacterPage {
   id: string;
   data: ICharacter;
 }

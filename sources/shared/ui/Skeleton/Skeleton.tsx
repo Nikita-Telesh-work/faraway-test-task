@@ -1,7 +1,7 @@
 import { Skeleton as MuiSkeleton, SkeletonProps } from '@mui/material';
 import React from 'react';
 
-interface ISkeleton extends SkeletonProps {
+export interface ISkeleton extends SkeletonProps {
   isLoading: boolean;
 }
 
@@ -11,6 +11,7 @@ export const Skeleton: React.FC<ISkeleton> = (props) => {
   if (isLoading) {
     return (
       <MuiSkeleton
+        data-testid="skeleton"
         sx={{
           ...sx,
           transform: 'none',

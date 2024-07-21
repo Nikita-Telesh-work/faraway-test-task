@@ -1,1 +1,1 @@
-export { Skeleton } from './Skeleton';
+export { type ISkeleton, Skeleton } from './Skeleton';

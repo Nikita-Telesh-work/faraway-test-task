@@ -7,7 +7,7 @@ interface INoContent {
 
 export const NoContent: React.FC<INoContent> = ({ text }) => (
   <PaperStyled>
-    <SearchOffIconStyled />
+    <SearchOffIconStyled data-testid="searchIcon" />
     <TextStyled component="p">{text}</TextStyled>
   </PaperStyled>
 );

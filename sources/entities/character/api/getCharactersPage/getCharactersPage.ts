@@ -1,13 +1,14 @@
-import { ICharactersPage } from '../model';
+import { ICharactersPage } from '../../model';
 
-interface IGetCharactersPage {
-  page: string;
-  search?: string;
+export interface IGetCharactersPage {
+  query: {
+    page: string;
+    search?: string;
+  };
 }
 
 export const getCharactersPage = async ({
-  page,
-  search,
+  query: { page, search },
 }: IGetCharactersPage): Promise<ICharactersPage> => {
   const res = await fetch(
     `https://swapi.dev/api/people?page=${page}${!!search ? `&search=${search}` : ''}`,

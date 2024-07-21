@@ -1,1 +1,1 @@
-export { CharactersList } from './CharactersList';
+export { type ICharactersList, CharactersList } from './CharactersList';

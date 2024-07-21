@@ -1,2 +1,2 @@
 export * from './ui';
-export { ThemesEnum } from './constants';
+export { ThemesEnum, DEFAULT_THEME_MODE } from './constants';

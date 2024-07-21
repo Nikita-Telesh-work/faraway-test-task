@@ -12,7 +12,7 @@ import {
 } from './CharactersList.styled';
 import { useCharactersList } from './useCharactersList';
 
-interface ICharactersList {
+export interface ICharactersList {
   currentPageNumber: number;
   pagesAmount: number;
   characters: ICharacter[];
@@ -39,6 +39,7 @@ export const CharactersList: React.FC<ICharactersList> = ({
 
       {pagesAmount > 1 && (
         <PaginationStyled
+          data-testid="pagination"
           page={currentPageNumber}
           count={pagesAmount}
           onChange={onChangePagination}

@@ -1,1 +1,1 @@
-export { HomePage } from './HomePage';
+export { type IHomePage, HomePage } from './HomePage';

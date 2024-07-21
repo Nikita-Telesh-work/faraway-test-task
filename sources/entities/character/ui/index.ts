@@ -1,1 +1,1 @@
-export { CharacterInfo } from './CharacterInfo';
+export { type ICharacterInfo, CharacterInfo } from './CharacterInfo';

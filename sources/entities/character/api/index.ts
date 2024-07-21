@@ -1,2 +1,3 @@
-export { getCharacterDetails } from './getCharacterDetails';
-export { getCharactersPage } from './getCharactersPage';
+export { getCharacterDetailsMock, getCharacterDetails } from './getCharacterDetails';
+export { getCharactersPageMock, getCharactersPage } from './getCharactersPage';
+export { characterApiHandlers } from './mswHandlers';

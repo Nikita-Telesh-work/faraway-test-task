@@ -11,7 +11,7 @@ import {
 } from './CharacterInfo.styled';
 import { useCharacterInfo } from './useCharacterInfo';
 
-interface ICharacterInfo {
+export interface ICharacterInfo {
   info: ICharacter;
   className?: string;
 }
@@ -24,7 +24,7 @@ export const CharacterInfo: React.FC<ICharacterInfo> = ({ info, className }) => 
       <LinkStyled
         aria-label={`Click to edit ${name} character details`}
         href={editCharacterPageUrl}>
-        <EditNoteIconStyled />
+        <EditNoteIconStyled data-testid="editCharacterIcon" />
       </LinkStyled>
 
       <TitleStyled variant="h5" component="h4">

@@ -1,1 +1,1 @@
-export { SearchCharacters } from './SearchCharacters';
+export { type ISearchCharacters, SearchCharacters } from './SearchCharacters';
