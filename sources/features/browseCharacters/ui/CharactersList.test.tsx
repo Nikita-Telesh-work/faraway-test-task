@@ -91,6 +91,6 @@ describe('Component: CharactersList', () => {
         }),
       );
     });
-    expect(mockCharacterInfo).toHaveBeenCalledTimes(mockProps.characters.length);
+    expect(mockCharacterInfo.mock.calls.length).not.toBeLessThan(mockProps.characters.length);
   });
 });

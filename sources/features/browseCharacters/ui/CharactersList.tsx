@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ICharacter } from '@/entities/character';
-import { NoContent } from '@/shared/ui';
+import { NoContent, Skeleton } from '@/shared/ui';
 
 import {
   CharacterInfoStyled,
@@ -11,6 +11,7 @@ import {
   PaginationStyled,
 } from './CharactersList.styled';
 import { useCharactersList } from './useCharactersList';
+import { maxQueries } from '@/shared/styles';
 
 export interface ICharactersList {
   currentPageNumber: number;
@@ -23,7 +24,8 @@ export const CharactersList: React.FC<ICharactersList> = ({
   pagesAmount,
   characters,
 }) => {
-  const { onChangePagination } = useCharactersList();
+  const { mounted, isLessThanTablet, isLessThanExtraSmallPhone, onChangePagination } =
+    useCharactersList();
 
   return (
     <CharactersListWrapperStyled>
@@ -38,12 +40,24 @@ export const CharactersList: React.FC<ICharactersList> = ({
       )}
 
       {pagesAmount > 1 && (
-        <PaginationStyled
-          data-testid="pagination"
-          page={currentPageNumber}
-          count={pagesAmount}
-          onChange={onChangePagination}
-        />
+        <Skeleton
+          sx={{
+            width: '422px',
+            height: '48px',
+            margin: '0 auto',
+            [maxQueries.tablet]: { width: '330px' },
+            [maxQueries.extraSmallPhone]: { width: '274px', height: '40px' },
+          }}
+          isLoading={!mounted}>
+          <PaginationStyled
+            data-testid="pagination"
+            page={currentPageNumber}
+            count={pagesAmount}
+            onChange={onChangePagination}
+            siblingCount={isLessThanTablet ? 0 : 1}
+            size={isLessThanExtraSmallPhone ? 'medium' : 'large'}
+          />
+        </Skeleton>
       )}
     </CharactersListWrapperStyled>
   );
