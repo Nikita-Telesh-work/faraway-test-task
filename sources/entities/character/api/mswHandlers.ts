@@ -1,11 +1,12 @@
 import { delay, http, HttpResponse, Path } from 'msw';
+import { apiBaseUrl } from '@/shared/api/constants';
 import { ICharacter, ICharactersPage } from '../model';
 import { IGetCharacterDetails, getCharacterDetailsMock } from './getCharacterDetails';
 import { getCharactersPageMock } from './getCharactersPage';
 
 export const characterApiHandlers = [
   http.get<IGetCharacterDetails['params'], never, ICharacter, Path>(
-    `https://swapi.dev/api/people/:id`,
+    `${apiBaseUrl}/people/:id`,
     async ({ params }) => {
       const mockData = getCharacterDetailsMock({ params });
 
@@ -15,18 +16,15 @@ export const characterApiHandlers = [
     },
   ),
 
-  http.get<never, never, ICharactersPage, Path>(
-    `https://swapi.dev/api/people`,
-    async ({ request }) => {
-      const url = new URL(request.url);
-      const page = url.searchParams.get('page') as string;
-      const search = url.searchParams.get('search') || undefined;
+  http.get<never, never, ICharactersPage, Path>(`${apiBaseUrl}/people`, async ({ request }) => {
+    const url = new URL(request.url);
+    const page = url.searchParams.get('page') as string;
+    const search = url.searchParams.get('search') || undefined;
 
-      const mockData = getCharactersPageMock({ query: { page, search } });
+    const mockData = getCharactersPageMock({ query: { page, search } });
 
-      await delay();
+    await delay();
 
-      return HttpResponse.json(mockData);
-    },
-  ),
+    return HttpResponse.json(mockData);
+  }),
 ];

@@ -11,7 +11,7 @@ interface IUseCharacterInfo {
 export const useCharacterInfo = ({ info }: IUseCharacterInfo) => {
   const { url } = info;
   const [mounted, setMounted] = useState(false);
-  const characterId = useMemo(() => url.match(/\d+/g)?.join('') ?? '', [url]);
+  const characterId = useMemo(() => url.match(/\/(\d+)/)?.[1] ?? '', [url]);
   const [characterData] = useLocalStorage(characterId, info);
   const { name, height, mass, hair_color, skin_color, eye_color, birth_year, gender } =
     characterData;

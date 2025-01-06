@@ -1,3 +1,4 @@
+import { apiBaseUrl } from '@/shared/api/constants';
 import { ICharactersPage } from '../../model';
 
 export interface IGetCharactersPage {
@@ -11,7 +12,7 @@ export const getCharactersPage = async ({
   query: { page, search },
 }: IGetCharactersPage): Promise<ICharactersPage> => {
   const res = await fetch(
-    `https://swapi.dev/api/people?page=${page}${!!search ? `&search=${search}` : ''}`,
+    `${apiBaseUrl}/people?page=${page}${!!search ? `&search=${search}` : ''}`,
   );
 
   return await res.json();
